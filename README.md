@@ -740,5 +740,6 @@ This repository demonstrates practical implementation of:
 **Ashwini Kumar**
 
 Senior Software Engineer
+Becton Dikinson & Company
 
 Building production-grade AI systems with .NET, React, Python, LLMs, RAG, Vector Databases, MCP, and AI Agents.
