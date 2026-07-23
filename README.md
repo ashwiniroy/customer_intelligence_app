@@ -39,7 +39,7 @@ The goal is to build a production-ready intelligent e-commerce platform where AI
 CustomerIntelligenceApp
 
 │
-├── app/                       # React Frontend
+├── frontend/                       # React Frontend
 │
 ├── ReviewAnalysisPlatform/    # .NET Backend
 │
