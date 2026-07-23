@@ -1,0 +1,21 @@
+from fastapi import APIRouter
+
+from pydantic import BaseModel
+
+from services.search.search_service import SearchService
+
+router = APIRouter()
+
+service = SearchService()
+
+
+class SearchRequest(BaseModel):
+
+    query: str
+
+
+@router.post("/search")
+
+async def semantic_search(request: SearchRequest):
+
+    return service.search(request.query)
