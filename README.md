@@ -1,270 +1,175 @@
-# AI Commerce Platform
+# 🚀 Customer Intelligence Platform
 
-> End-to-End AI Powered E-Commerce Platform using React, ASP.NET Core, FastAPI, Llama 3, RAG, Qdrant, AI Agents, MCP and Cloud Technologies.
+An end-to-end AI-powered Customer Intelligence Platform built using **React + .NET + Python AI + PostgreSQL + Qdrant + Llama 3**.
 
----
-
-# Vision
-
-The goal of this project is to build an enterprise-grade AI-powered commerce platform where customers can purchase products, receive intelligent recommendations, interact with AI assistants, search products semantically, submit reviews, and enable business users to leverage AI for analytics, customer support, inventory management, marketing, and decision-making.
-
-Unlike a simple chatbot project, this platform demonstrates a complete AI ecosystem integrated with a modern e-commerce application.
+The goal is to build a production-ready intelligent e-commerce platform where AI is integrated into every layer of the application.
 
 ---
 
-# Technology Stack
+# Tech Stack
 
 ## Frontend
-
 - React
-- React Router
-- Material UI / Tailwind
+- TypeScript
+- Material UI
 - Axios
-- JWT Authentication
-
----
 
 ## Backend
-
-- ASP.NET Core Web API
+- ASP.NET Core 9
 - Entity Framework Core
-- SQL Server
-- JWT Authentication
+- PostgreSQL
 - REST APIs
 
----
-
 ## AI Service
-
 - Python
 - FastAPI
 - Sentence Transformers
-- Hugging Face
+- HuggingFace
 - Ollama
 - Llama 3
-- Transformers
+- Qdrant
 - LangChain (Future)
 - LangGraph (Future)
 
 ---
 
-## AI Infrastructure
-
-- Qdrant Vector Database
-- Embeddings
-- RAG
-- Semantic Search
-
----
-
-## DevOps
-
-- Docker
-- Docker Compose
-- GitHub Actions
-- Kubernetes (Future)
-
----
-
-# Current Architecture
+# Repository Structure
 
 ```
-                    React Frontend
+CustomerIntelligenceApp
 
-                           │
-                           │
-
-                   ASP.NET Core API
-
-        Products
-        Orders
-        Reviews
-        Users
-
-                           │
-
-                    FastAPI AI Service
-
-      Review AI
-      Embeddings
-      Sentiment
-      RAG
-      Search
-
-                           │
-
-                    Ollama (Llama3)
-
-                           │
-
-                     Qdrant Database
+│
+├── app/                       # React Frontend
+│
+├── ReviewAnalysisPlatform/    # .NET Backend
+│
+├── ai-service/                # FastAPI AI Services
+│
+└── README.md
 ```
 
 ---
 
-# Current Features Completed
+# Current Features
 
-## React Portal
+## Customer Reviews
 
-✔ Login
+Customers can
 
-✔ Registration
-
-✔ Product Listing
-
-✔ Product Details
-
-✔ Review Submission
-
-✔ Shopping Cart
-
-✔ Order History
+- Submit reviews
+- View reviews
+- Rate products
+- Recommend products
 
 ---
 
-## ASP.NET Core
+## AI Review Analysis
 
-✔ Product APIs
+When a review is submitted,
 
-✔ Review APIs
+AI performs
 
-✔ Customer APIs
-
-✔ SQL Server Integration
-
-✔ CRUD Operations
-
----
-
-## AI Service
-
-✔ Review Analysis
-
-✔ Sentiment Analysis
-
-✔ Embedding Generation
-
-✔ Semantic Search
-
-✔ Review Ingestion
-
-✔ RAG Chat
-
-✔ Llama3 Integration
-
-✔ Vector Storage
-
-✔ Qdrant Integration
+- Sentiment Analysis
+- Embedding Generation
+- Vector Storage
+- Review Similarity Search
 
 ---
 
-# AI Pipeline
+## Vector Database
 
-```
-Customer Review
+Using
 
-↓
-
-Review API
-
-↓
-
-FastAPI
-
-↓
-
-Generate Embedding
-
-↓
-
-Store Vector
-
-↓
-
-Store Metadata
-
-↓
-
-Qdrant
-
-↓
-
-Semantic Search
-
-↓
-
-Top Similar Reviews
-
-↓
-
-Llama3
-
-↓
-
-Final AI Response
-```
-
----
-
-# APIs Implemented
-
-## Review APIs
-
-POST
-
-/api/review/analyze
-
-Analyzes customer review.
-
-Returns
-
-- Sentiment
-- Confidence
-- Keywords
-- Entities
-- Embedding
-
----
-
-## Search API
-
-POST
-
-/api/search
-
-Returns similar reviews using vector search.
-
----
-
-## RAG API
-
-POST
-
-/api/rag
-
-Uses
-
-- Semantic Search
 - Qdrant
-- Llama3
 
-Returns AI-generated answer.
+Every review is converted into embeddings and stored.
+
+This enables
+
+- Semantic Search
+- Similar Review Search
+- RAG
 
 ---
 
-## Review Ingestion API
+## Embedding Model
 
+Using
+
+```
+sentence-transformers/all-MiniLM-L6-v2
+```
+
+Produces
+
+384-dimensional vectors.
+
+---
+
+## RAG
+
+Implemented
+
+Workflow
+
+```
+Question
+
+↓
+
+Embedding
+
+↓
+
+Qdrant Search
+
+↓
+
+Relevant Reviews
+
+↓
+
+Llama 3
+
+↓
+
+Answer
+```
+
+---
+
+## LLM
+
+Using
+
+```
+Ollama
+
+Llama 3
+```
+
+Locally hosted.
+
+---
+
+## Review Ingestion
+
+Added ingestion API
+
+```
 POST
 
 /api/ingest/reviews
+```
 
-Flow
+Workflow
 
-ASP.NET API
+```
+.NET API
 
 ↓
 
-Fetch Reviews
+AI Service
 
 ↓
 
@@ -272,78 +177,27 @@ Generate Embeddings
 
 ↓
 
-Store in Qdrant
+Store into Qdrant
+```
 
 ---
 
-# Current AI Components
-
-## Embedding Model
-
-Sentence Transformers
-
-Used for
-
-- Semantic Search
-- RAG
-- Similarity
-
----
-
-## Sentiment Model
-
-Determines
-
-Positive
-
-Neutral
-
-Negative
-
----
-
-## Vector Database
-
-Qdrant
-
-Stores
-
-Embedding
-
-+
-
-Metadata
-
----
-
-## LLM
-
-Llama 3 via Ollama
-
-Used for
-
-- Chat
-- RAG
-- Summaries
-
----
-
-# Enterprise Customer Journey
+# Current AI Pipeline
 
 ```
-Customer
+Customer Review
 
 ↓
 
-Login
+Sentiment Analysis
 
 ↓
 
-Browse Products
+Generate Embeddings
 
 ↓
 
-AI Recommendations
+Store into Qdrant
 
 ↓
 
@@ -351,551 +205,540 @@ Semantic Search
 
 ↓
 
-Shopping Cart
+Relevant Reviews
 
 ↓
 
-Checkout
+Llama 3
 
 ↓
 
-Order
-
-↓
-
-Delivery
-
-↓
-
-Write Review
-
-↓
-
-Review Analysis
-
-↓
-
-Embedding Generated
-
-↓
-
-Stored in Qdrant
-
-↓
-
-Future Recommendations Improve
+Answer
 ```
 
 ---
 
-# Customer AI Features (Future)
-
-## AI Shopping Assistant
-
-Example
-
-"I need a gaming laptop under ₹80,000."
-
-AI
-
-↓
-
-Finds products
-
-↓
-
-Ranks products
-
-↓
-
-Explains recommendations
+# Running the Project
 
 ---
 
-## Product Recommendation Engine
+# 1. PostgreSQL
 
-Uses
+Start PostgreSQL
 
-- Purchase History
-- Browsing History
-- Reviews
-- Wishlist
-- Similar Customers
+Verify connection
 
-Recommends
+```
+localhost:5432
+```
 
-- Related Products
-- Frequently Bought Together
-- Personalized Suggestions
+Database
+
+```
+ReviewAnalysisDB
+```
 
 ---
 
-## Semantic Product Search
+# 2. Apply EF Core Migration
 
-Instead of
+Inside
 
-gaming mouse
+```
+ReviewAnalysisPlatform
+```
 
-User can search
+Run
 
-"best mouse for FPS games"
+```bash
+dotnet ef database update
+```
+
+Create migration
+
+```bash
+dotnet ef migrations add InitialCreate
+```
+
+---
+
+# 3. Run Backend
+
+```bash
+cd ReviewAnalysisPlatform
+
+dotnet run
+```
+
+Swagger
+
+```
+https://localhost:xxxx/swagger
+```
+
+---
+
+# 4. Run React App
+
+```
+cd app
+```
+
+Install
+
+```bash
+npm install
+```
+
+Run
+
+```bash
+npm start
+```
 
 or
 
-"comfortable office keyboard"
+```bash
+npm run dev
+```
+
+Depending on your React setup.
 
 ---
 
-## AI Review Summary
-
-Instead of reading thousands of reviews
-
-AI generates
-
-- Summary
-- Pros
-- Cons
-- Common Complaints
-- Final Recommendation
-
----
-
-## Product Comparison
-
-Example
-
-Compare
-
-iPhone
-
-vs
-
-Samsung
-
-AI summarizes
-
-- Features
-- Customer Reviews
-- Advantages
-- Disadvantages
-
----
-
-## Personalized Homepage
-
-Based on
-
-- Orders
-- Browsing
-- Wishlist
-- Reviews
-- Search History
-
----
-
-# Internal AI Features (Future)
-
-## Customer Support AI
-
-Answers
-
-- Refunds
-- Shipping
-- Warranty
-- Returns
-- Delivery
-
----
-
-## Review Intelligence Dashboard
-
-Shows
-
-- Positive %
-- Negative %
-- Trending Products
-- Customer Satisfaction
-
----
-
-## Fraud Detection
-
-Detect
-
-- Fake Reviews
-- Spam
-- Bots
-- Fraudulent Orders
-
----
-
-## Inventory AI
-
-Predicts
-
-- Demand
-- Low Stock
-- Purchase Planning
-
----
-
-## Sales Forecast
-
-Predicts
-
-Monthly
-
-Quarterly
-
-Yearly Sales
-
----
-
-## Marketing AI
-
-Generates
-
-- Emails
-- Product Descriptions
-- Campaign Ideas
-- Advertisements
-
----
-
-## Executive AI Dashboard
-
-Ask
-
-"Why are headphone sales decreasing?"
-
-"Summarize customer complaints."
-
-"What should we improve?"
-
----
-
-# Future AI Roadmap
-
-## Phase 1 ✅
-
-- React Portal
-- ASP.NET APIs
-- FastAPI
-- Sentiment Analysis
-- Embeddings
-- Semantic Search
-- Qdrant
-- Review Ingestion
-- RAG
-- Llama3
-
----
-
-## Phase 2
-
-- Product Recommendation Engine
-- Hybrid Search (BM25 + Vector Search)
-- Product Comparison
-- AI Review Summary
-- Streaming Responses
-
----
-
-## Phase 3
-
-- Multi-document RAG
-- FAQ Search
-- Product Manuals
-- Warranty Documents
-- Shipping Policies
-- Cross Encoder Re-ranking
-
----
-
-## Phase 4
-
-LangGraph
-
-AI Agents
-
-- Shopping Agent
-- Customer Support Agent
-- Marketing Agent
-- Inventory Agent
-- Analytics Agent
-
----
-
-## Phase 5
-
-Model Context Protocol (MCP)
-
-Connect AI to
-
-- SQL Server
-- GitHub
-- Azure DevOps
-- Jira
-- Slack
-- Teams
-- Outlook
-- Gmail
-- SharePoint
-- Google Drive
-- Azure Storage
-- GCP Storage
-- Kubernetes
-- Stripe
-- Razorpay
-
----
-
-## Phase 6
-
-Multi-Agent System
+# 5. Python AI Service
 
 ```
-Customer Query
+cd ai-service
+```
 
-↓
+Create virtual environment
 
-Planner Agent
+Mac/Linux
 
-↓
+```bash
+python3 -m venv .venv
+```
 
-Retriever Agent
+Windows
 
-↓
+```bash
+python -m venv .venv
+```
 
-Recommendation Agent
+Activate
 
-↓
+Mac
 
-Order Agent
+```bash
+source .venv/bin/activate
+```
 
-↓
+Windows
 
-Customer Support Agent
+```bash
+.venv\Scripts\activate
+```
 
-↓
+Install packages
 
-Response Generator
+```bash
+pip install -r requirements.txt
+```
 
-↓
+Run
 
-Customer
+```bash
+uvicorn main:app --reload
+```
+
+Swagger
+
+```
+http://localhost:8000/docs
 ```
 
 ---
 
-## Phase 7
+# 6. Install Ollama
 
-Enterprise AI Platform
+Download
 
-- Docker
-- Docker Compose
-- Kubernetes
-- Azure Kubernetes Service (AKS)
-- Google Kubernetes Engine (GKE)
-- Azure OpenAI
-- Vertex AI
-- Redis Cache
-- PostgreSQL
-- Monitoring
-- LangSmith
-- OpenTelemetry
-- MLflow
-- Prompt Versioning
-- Model Evaluation
-- Human Approval Workflow
+https://ollama.com
 
----
+Run
 
-# Production Deployment
+```bash
+ollama serve
+```
 
-## Local Development
+Download model
 
-React
+```bash
+ollama pull llama3
+```
 
-↓
+Test
 
-.NET API
-
-↓
-
-FastAPI
-
-↓
-
-Ollama
-
-↓
-
-Qdrant
+```bash
+ollama run llama3
+```
 
 ---
 
-## Azure
-
-React
-
-↓
-
-Azure Static Web Apps
-
-↓
-
-App Service
-
-↓
-
-Azure Kubernetes Service
-
-↓
-
-Azure SQL
-
-↓
-
-Azure OpenAI
-
-↓
-
-Azure AI Search
-
-↓
-
-Azure Blob Storage
-
-↓
-
-Azure Monitor
-
----
-
-## Google Cloud
-
-React
-
-↓
-
-Cloud Storage
-
-↓
-
-Cloud Run
-
-↓
-
-GKE
-
-↓
-
-Cloud SQL
-
-↓
-
-Vertex AI
-
-↓
-
-Cloud Storage
-
-↓
-
-Cloud Monitoring
-
----
-
-## Open Source Deployment
-
-React
-
-↓
-
-Nginx
-
-↓
+# 7. Install Qdrant
 
 Docker
 
-↓
+```bash
+docker run -p 6333:6333 qdrant/qdrant
+```
 
-Kubernetes
+Dashboard
 
-↓
-
-FastAPI
-
-↓
-
-ASP.NET
-
-↓
-
-Ollama
-
-↓
-
-Qdrant
-
-↓
-
-PostgreSQL
-
-↓
-
-Grafana
-
-↓
-
-Prometheus
-
-↓
-
-OpenTelemetry
+```
+http://localhost:6333/dashboard
+```
 
 ---
 
-# Learning Objectives
+# 8. Create Collection
 
-This project demonstrates expertise in
+Run
 
-- Full Stack Development
-- AI Engineering
-- Prompt Engineering
+```python
+python create_collection.py
+```
+
+Collection
+
+```
+reviews
+```
+
+---
+
+# 9. Ingest Reviews
+
+Call
+
+```
+POST
+
+/api/ingest/reviews
+```
+
+AI Service fetches reviews from
+
+```
+.NET API
+```
+
+Generates embeddings
+
+Stores into
+
+```
+Qdrant
+```
+
+---
+
+# APIs Built
+
+## Review Analysis
+
+```
+POST
+
+/api/review/analyze
+```
+
+---
+
+## Similar Reviews
+
+```
+POST
+
+/api/search
+```
+
+---
+
+## RAG
+
+```
+POST
+
+/api/rag
+```
+
+---
+
+## Review Ingestion
+
+```
+POST
+
+/api/ingest/reviews
+```
+
+---
+
+# Current Architecture
+
+```
+                React
+
+                  │
+
+                  ▼
+
+          ASP.NET Core API
+
+                  │
+
+        ┌─────────┴─────────┐
+
+        ▼                   ▼
+
+ PostgreSQL             AI Service
+
+                            │
+
+          ┌─────────────────┼──────────────────┐
+
+          ▼                 ▼                  ▼
+
+ Sentiment Model     Embedding Model      Llama 3
+
+          │                 │
+
+          └──────────┬──────┘
+
+                     ▼
+
+                  Qdrant
+
+                     │
+
+                     ▼
+
+              Semantic Search
+
+                     │
+
+                     ▼
+
+                  RAG Answer
+```
+
+---
+
+# Future Improvements
+
+## Phase 1 - AI Foundation
+
+- Better Sentiment Models
+- Aspect Based Sentiment Analysis
+- Keyword Extraction
+- Named Entity Recognition
+- Multi-language Reviews
+- Review Summarization
+- Spam Detection
+- Fake Review Detection
+
+---
+
+## Phase 2 - Advanced RAG
+
+- Hybrid Search (BM25 + Vector Search)
+- Metadata Filtering
+- Multi-document Retrieval
+- Context Compression
+- Citation Support
+- Product Knowledge Base
+- FAQ Knowledge Base
+
+---
+
+## Phase 3 - AI Agents
+
+Implement specialized agents
+
+- Shopping Assistant
+- Customer Support Agent
+- Product Recommendation Agent
+- Review Analysis Agent
+- Marketing Agent
+- Sales Agent
+- Inventory Agent
+- Analytics Agent
+
+Using
+
+- LangGraph
+- CrewAI
+- AutoGen
+
+---
+
+## Phase 4 - MCP Integration
+
+Integrate Model Context Protocol
+
+Tools
+
+- PostgreSQL
+- GitHub
+- Slack
+- Jira
+- Email
+- Filesystem
+- REST APIs
+- Vector Databases
+
+Benefits
+
+- Tool calling
+- Live database access
+- Workflow automation
+- External system integration
+
+---
+
+## Phase 5 - Recommendation Engine
+
+Recommend products based on
+
+- Purchase History
+- Ratings
+- Similar Users
+- Similar Products
+- Customer Interests
+- Browsing Behaviour
+- Vector Similarity
+- Collaborative Filtering
+
+---
+
+## Phase 6 - Customer Portal
+
+Develop a complete e-commerce portal where customers can:
+
+- Browse products
+- Search intelligently using AI
+- Receive personalized product recommendations
+- Add products to cart
+- Checkout securely
+- Track orders
+- View purchase history
+- Submit reviews
+- Ask AI questions about products
+- Chat with an AI Shopping Assistant
+- Receive personalized offers and promotions
+
+---
+
+## Phase 7 - Internal AI Platform
+
+Build AI-powered tools for business users:
+
+### Customer Insights Dashboard
+
+- Customer sentiment trends
+- Product popularity
+- Complaint analysis
+- Review analytics
+- Customer segmentation
+
+### AI Support Assistant
+
+- Auto-reply generation
+- Ticket summarization
+- Knowledge retrieval
+- Suggested resolutions
+
+### Marketing AI
+
+- Campaign generation
+- Email drafting
+- Customer segmentation
+- Personalized offers
+
+### Sales AI
+
+- Sales forecasting
+- Cross-sell recommendations
+- Upsell opportunities
+- Lead scoring
+
+### Inventory AI
+
+- Demand prediction
+- Stock optimization
+- Reorder suggestions
+
+### Executive Dashboard
+
+- AI-generated business insights
+- Product performance
+- Customer satisfaction metrics
+- Revenue trends
+- Predictive analytics
+
+---
+
+# Long-Term Vision
+
+The goal is to evolve this project into a production-grade AI-native Customer Intelligence Platform where AI powers every customer interaction and business decision.
+
+Target capabilities include:
+
+- AI-first e-commerce experience
+- Intelligent product discovery
+- Personalized recommendations
+- Conversational shopping assistants
+- Enterprise-grade RAG pipelines
+- Multi-agent orchestration
+- MCP-based tool integration
+- Real-time analytics
+- Cloud-native deployment on Azure, AWS, or GCP
+- Scalable microservices architecture
+- CI/CD with GitHub Actions
+- Kubernetes-based deployment
+- Monitoring with Prometheus and Grafana
+
+---
+
+# Learning Outcomes
+
+This repository demonstrates practical implementation of:
+
+- FastAPI
+- ASP.NET Core
+- React
+- PostgreSQL
+- Entity Framework Core
+- Sentence Transformers
 - Embeddings
 - Vector Databases
+- Qdrant
 - Semantic Search
 - Retrieval-Augmented Generation (RAG)
-- Large Language Models
-- AI Agents
-- LangGraph
-- MCP
-- Multi-Agent Systems
-- Cloud Deployment
-- Kubernetes
-- DevOps
-- Enterprise AI Architecture
+- Llama 3 with Ollama
+- REST APIs
+- AI Service Integration
+- Production AI Architecture
+- Foundation for AI Agents and MCP
 
 ---
 
-# Final Vision
+# Author
 
-The end goal is to build a production-ready AI-powered commerce platform that combines:
+**Ashwini Kumar**
 
-- Modern React frontend
-- Enterprise-grade ASP.NET Core backend
-- Python FastAPI AI microservices
-- Llama 3 powered conversational AI
-- Vector search with Qdrant
-- RAG pipelines
-- Intelligent product recommendations
-- AI shopping assistants
-- AI-powered customer support
-- Multi-agent workflows
-- MCP-based enterprise integrations
-- Cloud-native deployment on Azure or GCP
-- End-to-end observability, scalability, and production readiness
+Senior Software Engineer
 
-This project serves as both a practical learning platform and a comprehensive portfolio demonstrating the skills required for Senior AI Engineer, AI Architect, or Full Stack AI Developer roles.
+Building production-grade AI systems with .NET, React, Python, LLMs, RAG, Vector Databases, MCP, and AI Agents.
